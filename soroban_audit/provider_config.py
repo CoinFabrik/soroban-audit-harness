@@ -149,8 +149,6 @@ class RunConfiguration:
             "--ignore-user-config",
             "--ignore-rules",
             "--skip-git-repo-check",
-            "--sandbox",
-            "workspace-write",
             "--approve-for-me",
             "--color",
             "never",

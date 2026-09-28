@@ -22,7 +22,8 @@ class ProviderConfigurationTests(unittest.TestCase):
         )
         rendered = " ".join(config.codex_exec_prefix("codex"))
         self.assertIn('model_provider="openrouter"', rendered)
-        self.assertIn("--sandbox workspace-write", rendered)
+        self.assertIn("--approve-for-me", rendered)
+        self.assertNotIn("--sandbox", rendered)
         self.assertNotIn("dangerously-bypass", rendered)
 
     def test_openrouter_requires_key(self) -> None:

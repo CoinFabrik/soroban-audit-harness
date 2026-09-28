@@ -95,7 +95,7 @@ The directory must contain a `catalog.json` and one Markdown file per packet ID.
 
 ## Safety
 
-The scanner materializes an isolated source snapshot and runs Codex with its workspace-write sandbox. It does not change the user's working tree. Generated results may include false positives, duplicates, informational observations, or unsupported assumptions.
+The scanner materializes an isolated source snapshot and runs Codex with automatic approval review in its workspace-write sandbox. It does not change the user's working tree. Generated results may include false positives, duplicates, informational observations, or unsupported assumptions.
 
 The tool never publishes findings or contacts maintainers. Keep findings about active projects private until they have been reviewed and responsibly disclosed.
 
