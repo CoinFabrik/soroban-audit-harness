@@ -1,0 +1,32 @@
+[
+  {
+    "id": "soroban-core",
+    "title": "Soroban execution and storage model",
+    "alwaysInclude": true,
+    "selectWhen": "Always. Establish Soroban-specific authorization, rollback, storage, TTL, cross-contract, token, time, and resource semantics."
+  },
+  {
+    "id": "numeric-safety",
+    "title": "Numeric conversions, precision, and rounding",
+    "alwaysInclude": false,
+    "selectWhen": "The repository performs casts, fixed-point math, decimal scaling, fee calculations, share conversions, ratios, prices, interest, or signed arithmetic."
+  },
+  {
+    "id": "defi-accounting",
+    "title": "DeFi accounting and economic manipulation",
+    "alwaysInclude": false,
+    "selectWhen": "The repository manages deposits, shares, reserves, donations, liquidity, fees, debt, collateral, rewards, swaps, vaults, auctions, or liquidations."
+  },
+  {
+    "id": "state-machine",
+    "title": "State transitions and representation consistency",
+    "alwaysInclude": false,
+    "selectWhen": "Security depends on lifecycle states, repeated operations, cached and persisted objects, auctions, claims, queued actions, role aliasing, replay protection, or multi-step procedures."
+  },
+  {
+    "id": "external-calls",
+    "title": "Cross-contract and token interaction safety",
+    "alwaysInclude": false,
+    "selectWhen": "Public paths invoke user-selected or configurable contracts, token clients, callbacks, routers, pools, bridges, or other external dependencies."
+  }
+]

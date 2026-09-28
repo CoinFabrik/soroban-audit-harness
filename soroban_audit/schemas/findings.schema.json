@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["findings", "resolvedQuestions", "fullyReviewedFiles"],
+  "properties": {
+    "findings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id", "title", "category", "severity", "confidence", "invariant",
+          "attacker", "attackPath", "impact", "locations", "evidence",
+          "counterevidence", "remediation"
+        ],
+        "properties": {
+          "id": { "type": "string" },
+          "title": { "type": "string" },
+          "category": { "type": "string" },
+          "severity": { "type": "string", "enum": ["critical", "high", "medium", "low", "note"] },
+          "confidence": { "type": "string", "enum": ["high", "medium", "low"] },
+          "invariant": { "type": "string" },
+          "attacker": { "type": "string" },
+          "attackPath": { "type": "string" },
+          "impact": { "type": "string" },
+          "locations": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["path", "startLine", "endLine"],
+              "properties": {
+                "path": { "type": "string" },
+                "startLine": { "type": "integer", "minimum": 1 },
+                "endLine": { "type": "integer", "minimum": 1 }
+              }
+            }
+          },
+          "evidence": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+          "counterevidence": { "type": "array", "items": { "type": "string" } },
+          "remediation": { "type": "string" }
+        }
+      }
+    },
+    "resolvedQuestions": { "type": "array", "items": { "type": "string" } },
+    "fullyReviewedFiles": { "type": "array", "items": { "type": "string" } }
+  }
+}

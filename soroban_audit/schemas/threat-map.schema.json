@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "repositorySummary",
+    "contracts",
+    "entryPoints",
+    "stateAssets",
+    "trustBoundaries",
+    "invariants",
+    "investigationPackets",
+    "selectedKnowledgePackets",
+    "coverage"
+  ],
+  "properties": {
+    "repositorySummary": { "type": "string" },
+    "contracts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name", "purpose", "paths"],
+        "properties": {
+          "name": { "type": "string" },
+          "purpose": { "type": "string" },
+          "paths": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    },
+    "entryPoints": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name", "path", "line", "caller", "stateChanges", "externalCalls"],
+        "properties": {
+          "name": { "type": "string" },
+          "path": { "type": "string" },
+          "line": { "type": "integer", "minimum": 1 },
+          "caller": { "type": "string" },
+          "stateChanges": { "type": "array", "items": { "type": "string" } },
+          "externalCalls": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    },
+    "stateAssets": { "type": "array", "items": { "type": "string" } },
+    "trustBoundaries": { "type": "array", "items": { "type": "string" } },
+    "invariants": { "type": "array", "items": { "type": "string" } },
+    "investigationPackets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "question", "attacker", "protectedAsset", "expectedControls", "paths"],
+        "properties": {
+          "id": { "type": "string" },
+          "question": { "type": "string" },
+          "attacker": { "type": "string" },
+          "protectedAsset": { "type": "string" },
+          "expectedControls": { "type": "array", "items": { "type": "string" } },
+          "paths": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    },
+    "selectedKnowledgePackets": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "rationale", "paths"],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "rationale": { "type": "string" },
+          "paths": { "type": "array", "minItems": 1, "items": { "type": "string" } }
+        }
+      }
+    },
+    "coverage": { "type": "array", "items": { "type": "string" } }
+  }
+}

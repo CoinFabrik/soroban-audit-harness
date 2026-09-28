@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "soroban-audit-harness"
+version = "0.1.0"
+description = "H1 repository-first and H2 knowledge-guided AI-assisted security analysis for Soroban repositories"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [
+  { name = "CoinFabrik Audits", email = "audits+stellar@coinfabrik.com" }
+]
+dependencies = []
+
+[project.scripts]
+soroban-audit = "soroban_audit.cli:main"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+include = ["soroban_audit*"]
+
+[tool.setuptools.package-data]
+soroban_audit = [
+  "prompts/*.md",
+  "prompts/h1/*.md",
+  "schemas/*.json",
+  "knowledge/default-v1/*.json",
+  "knowledge/default-v1/*.md",
+]
